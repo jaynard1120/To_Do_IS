@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To do List</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+
+</head>
+<style>
+    .modal {
+        display: none;
+        /* Hidden by default */
+        position: fixed;
+        /* Stay in place */
+        z-index: 1;
+        /* Sit on top */
+        padding-top: 100px;
+        /* Location of the box */
+        left: 0;
+        top: 0;
+        width: 100%;
+        /* Full width */
+        height: 100%;
+        /* Full height */
+        overflow: auto;
+        /* Enable scroll if needed */
+        background-color: rgb(0, 0, 0);
+        /* Fallback color */
+        background-color: rgba(0, 0, 0, 0.4);
+        /* Black w/ opacity */
+    }
+
+    /* Modal Content */
+    .modal-content {
+        background-color: #fefefe;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 50%;
+    }
+
+    /* The Close Button */
+    .close {
+        color: #aaaaaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .table {
+        margin-top: auto;
+        margin-left: 10%;
+        width: 80%;
+
+    }
+</style>
+
+<body>
+    <h1 class="text-center" style="margin-top: 4%;">To Do List</h1>
+    
+    <a href="/todoList/addEdit" class="btn btn-primary" style="float: right;margin-right:10%"><i
+        class="fa fa-plus"></i>Add Task</a>
+
+    <table class="table table-borderless text-center ">
+        <thead>
+            <tr>
+                <th scope="col">Tasks</th>
+                <th scope="col">Description</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% for(i = 0; i<tasks.length ;i++){%>
+            <tr>
+                <td><%=tasks[i].task%></td>
+                <td><%=tasks[i].description%></td>
+                <td>
+                    <!-- <button type="button" id="update" class="btn btn-primary"><i class="fa fa-edit"></i></button> -->
+                    <a class="btn btn-primary" href="/todoList/addEdit/<%=tasks[i]._id%>"><i class="fa fa-edit"></i></a>
+                    <a class="btn btn-danger font-weight-bold" href="/todoList/delete/<%=tasks[i]._id%>"><i
+                            class="fa fa-trash"></i></a>
+                </td>
+            </tr>
+            <%}%>
+        </tbody>
+      </table>
+      <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+
+     
+
+</body>
+</html>

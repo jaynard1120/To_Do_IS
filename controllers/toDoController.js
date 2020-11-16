@@ -10,7 +10,7 @@ const getTasks = async (request,response)=>{
               });
         }
         response.render('todoList',{
-            tasks:tasks,
+            tasks:tasks
         })
     }
     catch(e){
@@ -30,10 +30,13 @@ const addEdit = (request,response)=>{
 }
 
 const addTask = async (request, response) => {
+    let date = new Date();
+    let created = (date.getMonth()+1)+'/'+date.getDate()+'/'+date.getFullYear()
     try {
       const task = {
         task: request.body.task,
         description: request.body.description,
+        date:created
       };
   
       const newTask = new todo(task);

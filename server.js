@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({
     extended: true
 }));
+// app.use('/public',express.static('public'));
 app.use(bodyParser.json());
 const database = require('./db');
 const Todorouter = require('./routes/todoRoute')
